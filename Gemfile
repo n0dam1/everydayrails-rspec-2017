@@ -16,7 +16,6 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_bot_rails'
@@ -31,10 +30,17 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
+group :test do
+  gem 'capybara', '~> 2.15.2'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'launchy', '~> 2.4.3'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise'
 gem 'paperclip'
 gem 'geocoder'
