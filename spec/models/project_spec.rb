@@ -2,25 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
   # ユーザー単位では重複したプロジェクト名を許可しないこと
-  it "does not allow duplicate project names per user" do
-    owner = FactoryBot.create(:owner)
-    project = FactoryBot.create(:project, name: "Test Project", owner: owner)
-    new_project = FactoryBot.build(:project, name: "Test Project", owner: owner)
-
-    new_project.valid?
-    expect(new_project.errors[:name]).to include("has already been taken")
-  end
-
   # 二人のユーザーが同じ名前を使うことは許可すること
-  it "allows two users to share a project name" do
-    owner = FactoryBot.create(:owner)
-    project = FactoryBot.create(:project, name: "Test Project", owner: owner)
-
-    other_owner = FactoryBot.create(:owner, email: "janetester@example.com")
-    other_project = FactoryBot.create(:project, name: "Test Project", owner: other_owner)
-
-    expect(other_project).to be_valid
-  end
+  it { is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id) }
 
   # 遅延ステータス
   describe "late status" do

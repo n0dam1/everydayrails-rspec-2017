@@ -35,6 +35,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'launchy', '~> 2.4.3'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
