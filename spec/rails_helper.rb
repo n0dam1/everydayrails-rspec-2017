@@ -8,7 +8,6 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
 require 'paperclip/matchers'
-
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -57,18 +56,19 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  # Use Devise helpers in tests
+  # Deviseのヘルパーメソッドをテスト内で使用する
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include RequestSpecHelper, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :feature
+<<<<<<< HEAD
 
-  # Add support for Paperclip's Shoulda matchers
-  config.include Paperclip::Shoulda::Matchers
-
-  # Clean up file uploads when test suite is finished
+  # テストスイートの実行が終わったらアップロードされたファイルを削除する
   config.after(:suite) do
     FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_uploads/"])
   end
+
+  # PaperclipのShould Matchersサポートを追加する
+  config.include Paperclip::Shoulda::Matchers
 end
 
 Shoulda::Matchers.configure do |config|
@@ -76,4 +76,6 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+=======
+>>>>>>> ac52fcfe917ca9a23521a3a809b170fe2c8c45ef
 end

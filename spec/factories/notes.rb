@@ -5,7 +5,7 @@ FactoryBot.define do
     user { project.owner }
 
     trait :with_attachment do
-      attachment { File.new("#{Rails.root}/spec/files/attachment.jpg") }
+      attachment { File.new("#{Rails.root}/spec/files/attachement.jpg") }
     end
   end
 end

@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "Sign-ups", type: :feature do
+RSpec.feature "SignUps", type: :feature do
   include ActiveJob::TestHelper
 
+  # ユーザーはサインアップに成功する
   scenario "user successfully signs up" do
     visit root_path
     click_link "Sign up"
@@ -17,8 +18,7 @@ RSpec.feature "Sign-ups", type: :feature do
         click_button "Sign up"
       }.to change(User, :count).by(1)
 
-      expect(page).to \
-        have_content "Welcome! You have signed up successfully."
+      expect(page).to have_content "Welcome! You have signed up successfully."
       expect(current_path).to eq root_path
       expect(page).to have_content "First Last"
     end

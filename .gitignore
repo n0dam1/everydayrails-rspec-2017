@@ -27,3 +27,7 @@
 /spec/test_uploads
 
 .ruby-version
+
+/vendor/bundle
+
+/spec/cassettes
