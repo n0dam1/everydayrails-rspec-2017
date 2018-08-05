@@ -19,6 +19,7 @@ RSpec.feature "Projects", type: :feature do
       expect(page).to have_content "Test Project"
       expect(page).to have_content "Owner: #{user.name}"
     end
+<<<<<<< HEAD
   end
 
   # ユーザーはプロジェクトを完了済みにする
@@ -39,5 +40,7 @@ RSpec.feature "Projects", type: :feature do
     expect(page).to have_content "Congratulations, this project is complete!"
     expect(page).to have_content "Completed"
     expect(page).to_not have_button "Complete"
+=======
+>>>>>>> ac52fcfe917ca9a23521a3a809b170fe2c8c45ef
   end
 end

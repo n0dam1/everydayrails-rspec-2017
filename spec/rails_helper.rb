@@ -60,6 +60,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include RequestSpecHelper, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :feature
+<<<<<<< HEAD
 
   # テストスイートの実行が終わったらアップロードされたファイルを削除する
   config.after(:suite) do
@@ -75,4 +76,6 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+=======
+>>>>>>> ac52fcfe917ca9a23521a3a809b170fe2c8c45ef
 end
